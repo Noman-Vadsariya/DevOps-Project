@@ -1,0 +1,32 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web-deploy
+  labels:
+    name: web-deploy
+    app: devops-project-web
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      name: web-pod
+      app: devops-project-web
+  template:
+    metadata:
+      name: web-pod
+      labels:
+        name: web-pod
+        app: devops-project-web
+    spec:
+      containers:
+      - name: web-container01
+        image: nomanvadsariya/devops_project
+        resources:
+          requests:
+            memory: "64Mi"
+            cpu: "250m"
+          limits:
+            memory: "128Mi"
+            cpu: "500m"
+        ports:
+        - containerPort: 80
