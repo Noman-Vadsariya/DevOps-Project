@@ -43,6 +43,6 @@ form.onsubmit = (e) => {
     }
 
     if (!eField.classList.contains("error") && !pField.classList.contains("error")) {
-        window.location.replace("index.html");
+        window.location.replace("home.html");
     }
 }
